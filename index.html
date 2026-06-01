@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Clinic</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="logo">🩺</span>
+    <div>
+      <h1 id="title">Clinic</h1>
+      <p class="tagline" id="tagline">Easy doctor booking & care</p>
+    </div>
+  </div>
+
+  <div class="topbar-actions">
+    <select onchange="changeLang(this.value)">
+      <option value="en">EN</option>
+      <option value="fa">FA</option>
+      <option value="ps">PS</option>
+      <option value="ar">AR</option>
+    </select>
+  </div>
+</header>
+
+<nav class="main-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="active">Home</a>
+    <a href="#doctorTitle">Doctors</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<main class="page">
+  <section class="hero card">
+    <div class="hero-copy">
+      <span class="eyebrow" id="heroEyebrow">Trusted Clinic</span>
+      <h1 id="heroHeading">Smart Healthcare Platform</h1>
+      <p id="heroText">Book doctors, manage appointments, and get care easily from anywhere with a modern and secure experience.</p>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat-card">
+        <strong id="tip1Title">Drink water</strong>
+        <span id="tip1Desc">Stay hydrated for better energy.</span>
+      </div>
+      <div class="stat-card">
+        <strong id="tip2Title">Healthy sleep</strong>
+        <span id="tip2Desc">7-8 hours helps recovery and immunity.</span>
+      </div>
+      <div class="stat-card">
+        <strong id="tip3Title">Daily movement</strong>
+        <span id="tip3Desc">Keep active with gentle walks and stretches.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="doctor-section">
+    <div class="section-header">
+      <div>
+        <h2 id="doctorTitle">Doctors</h2>
+        <p id="doctorSectionText">Find the right specialist and schedule a visit in minutes.</p>
+      </div>
+    </div>
+
+    <div id="doctorList" class="grid"></div>
+  </section>
+</main>
+
+<div id="modal" class="modal hidden">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div>
+        <h2 id="modalTitle">Book Appointment</h2>
+        <p class="modal-subtitle" id="modalDoctorName">Your chosen doctor</p>
+      </div>
+      <button class="close-button" onclick="closeModal()">✕</button>
+    </div>
+
+    <input id="pname" placeholder="Name">
+    <input id="pphone" placeholder="Phone">
+    <input id="psymptoms" placeholder="Symptoms">
+    <input type="date" id="pdate">
+    <input type="time" id="ptime">
+
+    <div class="modal-actions">
+      <button class="primary-btn" id="confirmBooking" onclick="submitBooking()">Confirm</button>
+      <button class="secondary-btn" id="cancelBooking" onclick="closeModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script src="translations.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
